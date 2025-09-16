@@ -312,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
  #shopify-section-{{ section.id }} .header {
    display: flex;
    align-items: center;
+   padding-right: 0; /* remove overall right padding */
  }
 
  #shopify-section-{{ section.id }} .header__icons {
@@ -319,27 +320,29 @@ document.addEventListener('DOMContentLoaded', function() {
    display: flex;
    align-items: center;
    gap: 0; /* No spacing between icons */
+   column-gap: 0;
+   row-gap: 0;
    padding-right: 0; /* No right padding */
    margin-right: 0; /* No right margin */
  }
 
  #shopify-section-{{ section.id }} .header__icons a {
+   display: flex;
+   align-items: center;
    padding-left: 0;
    padding-right: 0;
    margin-left: 0;
    margin-right: 0;
+   line-height: 1; /* tighten inline box */
  }
 
- #shopify-section-{{ section.id }} .header__icons,
- #shopify-section-{{ section.id }} .header__icons a,
- #shopify-section-{{ section.id }} .header__icons .svg-wrapper,
- #shopify-section-{{ section.id }} .header__icons svg {
-   color: black !important;
- }
+ #shopify-section-{{ section.id }} .header__icons > * { margin: 0; }
+#shopify-section-{{ section.id }} .header__icons .svg-wrapper { margin: 0; }
+#shopify-section-{{ section.id }} .header__icons svg { display: block; }
 
  /* Menu alignment with logo */
  #shopify-section-{{ section.id }} .header__inline-menu {
-   padding-left: 1.5rem; /* Match logo padding */
+   padding-left: 2.5rem; /* Match logo padding */
  }
 
  /* Hover effects for all menu elements */
