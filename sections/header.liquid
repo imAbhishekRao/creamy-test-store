@@ -319,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
    display: flex;
    align-items: center;
    gap: 0.5rem;
+   padding-right: 3rem; /* Match logo padding */
  }
 
  #shopify-section-{{ section.id }} .header__icons a {
@@ -331,6 +332,33 @@ document.addEventListener('DOMContentLoaded', function() {
  #shopify-section-{{ section.id }} .header__icons .svg-wrapper,
  #shopify-section-{{ section.id }} .header__icons svg {
    color: black !important;
+ }
+
+ /* Menu alignment with logo */
+ #shopify-section-{{ section.id }} .header__inline-menu {
+   padding-left: 3rem; /* Match logo padding */
+ }
+
+ /* Hover effects for all menu elements */
+ #shopify-section-{{ section.id }} .header__inline-menu a:hover,
+ #shopify-section-{{ section.id }} .header__inline-menu a:focus,
+ #shopify-section-{{ section.id }} summary.header__menu-item:hover span,
+ #shopify-section-{{ section.id }} summary.header__menu-item:focus span,
+ #shopify-section-{{ section.id }} .header__inline-menu .list-menu span:hover {
+   color: var(--color-accent, #9C6F4A) !important;
+ }
+
+ /* Icons hover effect */
+ #shopify-section-{{ section.id }} .header__icons a:hover,
+ #shopify-section-{{ section.id }} .header__icons a:focus {
+   color: var(--color-accent, #9C6F4A) !important;
+ }
+
+ #shopify-section-{{ section.id }} .header__icons a:hover svg,
+ #shopify-section-{{ section.id }} .header__icons a:focus svg {
+   color: var(--color-accent, #9C6F4A) !important;
+   stroke: var(--color-accent, #9C6F4A) !important;
+   fill: var(--color-accent, #9C6F4A) !important;
  }
 
  /* Hover/focus color: use theme accent if available, else brown */
