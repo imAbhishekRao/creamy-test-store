@@ -259,10 +259,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
  .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0;
   color: black !important;
+  font-weight: bold;
+  text-decoration: none;
+  padding-left: 0;
+  margin-left: 0;
+  transition: color 0.3s ease;
 }
+
+/* Additional specificity for menu items */
+.header .header__menu-item.list-menu__item.link.link--text.focus-inset {
+  font-size: 14px !important;
+  letter-spacing: 0 !important;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+/* Ensure menu items are styled correctly in all states */
+.header__inline-menu .header__menu-item.list-menu__item.link.link--text.focus-inset {
+  font-size: 14px !important;
+  letter-spacing: 0 !important;
+  color: black !important;
+  font-weight: bold !important;
+}
+
+ /* Scope to this header section id to match DevTools rule */
+ #shopify-section-{{ section.id }} .header__inline-menu a,
+ #shopify-section-{{ section.id }} .header .header__menu-item.list-menu__item.link--text,
+ #shopify-section-{{ section.id }} .header .header__menu-item.list-menu__item.link.link--text,
+ #shopify-section-{{ section.id }} .header .header__menu-item.link.focus-inset,
+ #shopify-section-{{ section.id }} .header .header__active-menu-item {
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 14px;
+   letter-spacing: 0;
+   color: black !important;
+   padding-left: 0;
+   margin-left: 0;
+ }
 
 </style>
 
