@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
  .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 14px;
+  font-size: 12px;
   letter-spacing: 0;
   color: black !important;
   font-weight: bold;
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Additional specificity for menu items */
 .header .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 14px !important;
+  font-size: 12px !important;
   letter-spacing: 0 !important;
   color: black !important;
   font-weight: bold !important;
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Ensure menu items are styled correctly in all states */
 .header__inline-menu .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 14px !important;
+  font-size: 12px !important;
   letter-spacing: 0 !important;
   color: black !important;
   font-weight: bold !important;
@@ -293,11 +293,19 @@ document.addEventListener('DOMContentLoaded', function() {
  #shopify-section-{{ section.id }} .header .header__active-menu-item {
    text-decoration: none;
    font-weight: bold;
-   font-size: 14px;
+   font-size: 12px;
    letter-spacing: 0;
    color: black !important;
    padding-left: 0;
    margin-left: 0;
+ }
+
+ /* Ensure top-level summary spans are black (overrides grey scrolled state) */
+ #shopify-section-{{ section.id }} .header__inline-menu .list-menu span,
+ #shopify-section-{{ section.id }} .header-wrapper.scrolled .list-menu span {
+   color: black !important;
+   font-size: 12px;
+   letter-spacing: 0;
  }
 
 </style>
