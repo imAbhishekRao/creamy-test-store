@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
  .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 12px;
+  font-size: 0.75rem;
   letter-spacing: 0;
   color: black !important;
   font-weight: bold;
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Additional specificity for menu items */
 .header .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 12px !important;
+  font-size: 0.75rem !important;
   letter-spacing: 0 !important;
   color: black !important;
   font-weight: bold !important;
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Ensure menu items are styled correctly in all states */
 .header__inline-menu .header__menu-item.list-menu__item.link.link--text.focus-inset {
-  font-size: 12px !important;
+  font-size: 0.75rem !important;
   letter-spacing: 0 !important;
   color: black !important;
   font-weight: bold !important;
@@ -304,8 +304,41 @@ document.addEventListener('DOMContentLoaded', function() {
  #shopify-section-{{ section.id }} .header__inline-menu .list-menu span,
  #shopify-section-{{ section.id }} .header-wrapper.scrolled .list-menu span {
    color: black !important;
-   font-size: 12px;
+   font-size: 0.75rem;
    letter-spacing: 0;
+ }
+
+ /* Icons: align far right, tighten spacing, force black */
+ #shopify-section-{{ section.id }} .header {
+   display: flex;
+   align-items: center;
+ }
+
+ #shopify-section-{{ section.id }} .header__icons {
+   margin-left: auto;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+ }
+
+ #shopify-section-{{ section.id }} .header__icons a {
+   padding-left: 0.25rem;
+   padding-right: 0.25rem;
+ }
+
+ #shopify-section-{{ section.id }} .header__icons,
+ #shopify-section-{{ section.id }} .header__icons a,
+ #shopify-section-{{ section.id }} .header__icons .svg-wrapper,
+ #shopify-section-{{ section.id }} .header__icons svg {
+   color: black !important;
+ }
+
+ /* Hover/focus color: use theme accent if available, else brown */
+ #shopify-section-{{ section.id }} .header__inline-menu a:hover,
+ #shopify-section-{{ section.id }} .header__inline-menu a:focus,
+ #shopify-section-{{ section.id }} summary.header__menu-item:hover span,
+ #shopify-section-{{ section.id }} summary.header__menu-item:focus span {
+   color: var(--color-accent, #9C6F4A) !important;
  }
 
 </style>
