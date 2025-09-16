@@ -318,13 +318,16 @@ document.addEventListener('DOMContentLoaded', function() {
    margin-left: auto;
    display: flex;
    align-items: center;
-   gap: 0.5rem;
-   padding-right: 0.5rem; /* Minimal right padding */
+   gap: 0; /* No spacing between icons */
+   padding-right: 0; /* No right padding */
+   margin-right: 0; /* No right margin */
  }
 
  #shopify-section-{{ section.id }} .header__icons a {
-   padding-left: 0.25rem;
-   padding-right: 0.25rem;
+   padding-left: 0;
+   padding-right: 0;
+   margin-left: 0;
+   margin-right: 0;
  }
 
  #shopify-section-{{ section.id }} .header__icons,
@@ -336,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
  /* Menu alignment with logo */
  #shopify-section-{{ section.id }} .header__inline-menu {
-   padding-left: 3rem; /* Match logo padding */
+   padding-left: 1.5rem; /* Match logo padding */
  }
 
  /* Hover effects for all menu elements */
