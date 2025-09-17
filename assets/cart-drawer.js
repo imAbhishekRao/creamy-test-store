@@ -26,6 +26,13 @@ class CartDrawer extends HTMLElement {
   }
 
   open(triggeredBy) {
+    // If screen width is < 750px → redirect to cart page
+    if (window.innerWidth < 750) {
+      window.location.href = '/cart';
+      return; // prevent drawer behavior
+    }
+
+    // Desktop behavior → keep drawer logic
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
@@ -71,6 +78,12 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
+    // If screen width is < 750px → redirect to cart page instead of opening drawer
+    if (window.innerWidth < 750) {
+      window.location.href = '/cart';
+      return;
+    }
+
     this.querySelector('.drawer__inner').classList.contains('is-empty') &&
       this.querySelector('.drawer__inner').classList.remove('is-empty');
     this.productId = parsedState.id;

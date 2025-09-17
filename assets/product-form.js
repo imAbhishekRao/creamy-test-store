@@ -66,6 +66,12 @@ if (!customElements.get('product-form')) {
               return;
             }
 
+            // If screen width is < 750px → redirect to cart page instead of opening drawer
+            if (window.innerWidth < 750) {
+              window.location.href = '/cart';
+              return;
+            }
+
             const startMarker = CartPerformance.createStartingMarker('add:wait-for-subscribers');
             if (!this.error)
               publish(PUB_SUB_EVENTS.cartUpdate, {

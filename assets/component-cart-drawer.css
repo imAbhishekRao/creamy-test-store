@@ -11,6 +11,13 @@
   transition: visibility var(--duration-default) ease;
 }
 
+/* Hide cart drawer on mobile devices (width < 750px) */
+@media screen and (max-width: 749px) {
+  .drawer {
+    display: none !important;
+  }
+}
+
 .drawer.active {
   visibility: visible;
 }
