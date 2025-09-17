@@ -8,7 +8,7 @@ if (!customElements.get('product-form')) {
         this.form = this.querySelector('form');
         this.variantIdInput.disabled = false;
         this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
-        this.cart = document.querySelector('cart-drawer') || document.querySelector('cart-notification');
+        this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
         this.submitButton = this.querySelector('[type="submit"]');
         this.submitButtonText = this.submitButton.querySelector('span');
 
@@ -66,9 +66,9 @@ if (!customElements.get('product-form')) {
               return;
             }
 
-            // If screen width is < 750px → redirect to cart page instead of opening drawer
-            if (window.innerWidth < 750) {
-              window.location.href = '/cart';
+            // On mobile, redirect to cart page immediately after add-to-cart
+            if (window.innerWidth < 990) {
+              window.location.href = window.routes.cart_url || '/cart';
               return;
             }
 

@@ -6,12 +6,7 @@
   display: block;
 }
 
-/* Hide cart notification on desktop to prefer drawer UX */
-@media screen and (min-width: 750px) {
-  .cart-notification-wrapper .cart-notification {
-    display: none !important;
-  }
-}
+/* (Reverted) Show cart notification on desktop if enabled */
 
 .cart-notification {
   border-bottom-right-radius: var(--popup-corner-radius);

@@ -15,24 +15,26 @@ class CartDrawer extends HTMLElement {
     cartLink.setAttribute('aria-haspopup', 'dialog');
     cartLink.addEventListener('click', (event) => {
       event.preventDefault();
+      // Redirect to cart page on mobile before drawer logic can run
+      if (window.innerWidth < 990) {
+        window.location.href = '/cart';
+        return;
+      }
       this.open(cartLink);
     });
     cartLink.addEventListener('keydown', (event) => {
       if (event.code.toUpperCase() === 'SPACE') {
         event.preventDefault();
+        if (window.innerWidth < 990) {
+          window.location.href = '/cart';
+          return;
+        }
         this.open(cartLink);
       }
     });
   }
 
   open(triggeredBy) {
-    // If screen width is < 750px → redirect to cart page
-    if (window.innerWidth < 750) {
-      window.location.href = '/cart';
-      return; // prevent drawer behavior
-    }
-
-    // Desktop behavior → keep drawer logic
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute('role')) this.setSummaryAccessibility(cartDrawerNote);
@@ -78,12 +80,11 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
-    // If screen width is < 750px → redirect to cart page instead of opening drawer
-    if (window.innerWidth < 750) {
+    // If on mobile, redirect to cart page instead of opening drawer
+    if (window.innerWidth < 990) {
       window.location.href = '/cart';
       return;
     }
-
     this.querySelector('.drawer__inner').classList.contains('is-empty') &&
       this.querySelector('.drawer__inner').classList.remove('is-empty');
     this.productId = parsedState.id;
