@@ -405,19 +405,7 @@ color:#2d2a26;
       <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
     </ul>
 
-    <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var cartIcon = document.querySelector('.header__icon--cart');
-  if (!cartIcon) return;
-  if (window.innerWidth < 990) {
-    cartIcon.onclick = function(event) {
-      event.preventDefault();
-      window.location.href = '/cart';
-    };
-  }
-});
-</script>
-
+    
 
     <script>
       window.shopUrl = '{{ request.origin }}';
@@ -471,5 +459,18 @@ document.addEventListener('DOMContentLoaded', function() {
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var cartIcon = document.querySelector('.header__icon--cart');
+  if (!cartIcon) return;
+  if (window.innerWidth < 990) {
+    cartIcon.onclick = function(event) {
+      event.preventDefault();
+      window.location.href = '/cart';
+    };
+  }
+});
+</script>
+
   </body>
 </html>
