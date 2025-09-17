@@ -406,6 +406,20 @@ color:#2d2a26;
     </ul>
 
     <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var cartIcon = document.querySelector('.header__icon--cart');
+  if (!cartIcon) return;
+  if (window.innerWidth < 990) {
+    cartIcon.onclick = function(event) {
+      event.preventDefault();
+      window.location.href = '/cart';
+    };
+  }
+});
+</script>
+
+
+    <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
