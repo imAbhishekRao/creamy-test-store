@@ -465,14 +465,39 @@ color:#2d2a26;
     
 <script>
 (function() {
-  var cartIcon = document.querySelector('.header__icon--cart');
-  if (!cartIcon) return;
-  if (window.innerWidth < 768) {
-    cartIcon.onclick = function(e) {
-      e.preventDefault();
-      window.location.href = '/cart';
-    };
+  // Function to set redirect for cart icon
+  function setupCartRedirect() {
+    var cartIcon = document.querySelector('.header__icon--cart');
+    if (!cartIcon) return;
+    if (window.innerWidth < 768) {
+      cartIcon.onclick = function(e) {
+        e.preventDefault();
+        window.location.href = '/cart';
+      };
+    } else {
+      // Reset to default behavior if needed
+      cartIcon.onclick = null; 
+    }
   }
+
+  // Setup on initial load
+  setupCartRedirect();
+
+  // Also, setup for add-to-cart buttons on mobile
+  var addToCartButtons = document.querySelectorAll('.product-form__cart-submit');
+  addToCartButtons.forEach(function(button){
+    button.addEventListener('click', function(event){
+      if (window.innerWidth < 768) {
+        // Prevent default form submit if necessary
+        // and redirect
+        event.preventDefault();
+        window.location.href = '/cart';
+      }
+    });
+  });
+
+  // Optional: Recheck on window resize if you want dynamic behavior
+  window.addEventListener('resize', setupCartRedirect);
 })();
 </script>
 
